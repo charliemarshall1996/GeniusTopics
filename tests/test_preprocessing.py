@@ -318,5 +318,27 @@ class TestStripWhiteSpaceNegative(unittest.TestCase):
         self.assertEqual(actual, expected)
 
 
+class TestNormalizeCase(unittest.TestCase):
+    def test_normalize_case(self):
+        txt = "Test Normalize Case"
+        expected = "test normalize case"
+        actual = normalize_case(txt)
+        self.assertEqual(actual, expected)
+
+
+class TestStripStopWords(unittest.TestCase):
+    def test_strip_stop_words(self):
+        txt = "is remove stop words"
+        expected = "remove stop words"
+        actual = strip_stop_words(txt)
+        self.assertEqual(actual, expected)
+
+    def test_strip_stop_words_custom(self):
+        txt = "hey remove stop words"
+        expected = "remove stop words"
+        actual = strip_stop_words(txt)
+        self.assertEqual(actual, expected)
+
+
 if __name__ == "__main__":
     unittest.main()

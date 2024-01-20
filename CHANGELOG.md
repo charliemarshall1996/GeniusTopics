@@ -15,3 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Functionality to remove text inside square brackets.
 - Functionality to remove punctuation.
 - Functionality to remove white space.
+- Functionality to normalize case.
+- Functionality to remove stop words.
+- Functionality to remove stop words from custom vocab.
+- Functionality to lemmatize.
