@@ -53,3 +53,10 @@ def strip_punctuation(input_string):
     if not isinstance(input_string, str):
         return ""
     return regex.sub(pattern, '', input_string)
+
+
+def strip_white_space(input_string):
+    pattern = regex.compile(r"\s{2,}")
+    if not isinstance(input_string, str):
+        return ""
+    return regex.sub(pattern, ' ', input_string).strip()

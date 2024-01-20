@@ -221,5 +221,102 @@ class TestStripPunctuationNegative(unittest.TestCase):
         self.assertEqual(actual, "")
 
 
+class TestStripWhiteSpace(unittest.TestCase):
+
+    def test_strip_white_space_dbl_space(self):
+        txt = "test  strip  white  space"
+        expected = "test strip white space"
+        actual = strip_white_space(txt)
+        self.assertEqual(actual, expected)
+
+    def test_strip_white_space_tab(self):
+        txt = "test  strip  white   space"
+        expected = "test strip white space"
+        actual = strip_white_space(txt)
+        self.assertEqual(actual, expected)
+
+    def test_strip_white_space_return(self):
+        txt = """test
+        strip
+        white
+        space"""
+        expcted = "test strip white space"
+        actual = strip_white_space(txt)
+        self.assertEqual(actual, expcted)
+
+    def test_strip_white_space_before(self):
+        txt = " test strip white space"
+        expected = "test strip white space"
+        actual = strip_white_space(txt)
+        self.assertEqual(actual, expected)
+
+    def test_strip_white_space_after(self):
+        txt = "test strip white space "
+        expected = "test strip white space"
+        actual = strip_white_space(txt)
+        self.assertEqual(actual, expected)
+
+
+class TestStripWhiteSpaceEdge(unittest.TestCase):
+
+    def test_strip_white_space_empty_string(self):
+        txt = ""
+        expected = ""
+        actual = strip_white_space(txt)
+        self.assertEqual(actual, expected)
+
+    def test_strip_white_space_all_white_space(self):
+        txt = """
+                     """
+        expected = ""
+        actual = strip_white_space(txt)
+        self.assertEqual(actual, expected)
+
+    def test_strip_white_space_long_string(self):
+        txt = "test strip white space   test strip white space  test strip white space  "
+        expected = "test strip white space test strip white space test strip white space"
+        actual = strip_white_space(txt)
+        self.assertEqual(actual, expected)
+
+    def test_strip_white_space_long_before(self):
+        txt = "                         test strip white space"
+        expected = "test strip white space"
+        actual = strip_white_space(txt)
+        self.assertEqual(actual, expected)
+
+    def test_strip_white_space_long_after(self):
+        txt = "test strip white space                         "
+        expected = "test strip white space"
+        actual = strip_white_space(txt)
+        self.assertEqual(actual, expected)
+
+
+class TestStripWhiteSpaceNegative(unittest.TestCase):
+
+    def test_strip_white_space_none(self):
+        txt = None
+        expected = ""
+        actual = strip_white_space(txt)
+        self.assertEqual(actual, expected)
+
+    def test_strip_white_space_int(self):
+        txt = 1
+        expected = ""
+        actual = strip_white_space(txt)
+        self.assertEqual(actual, expected)
+
+    def test_strip_white_space_bool(self):
+        txt = False
+        expected = ""
+        actual = strip_white_space(txt)
+        self.assertEqual(actual, expected)
+
+    def test_strip_white_space_list(self):
+        txt = ["test strip white space."]
+        expected = ""
+        actual = strip_white_space(txt)
+        self.assertEqual(actual, expected)
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -14,3 +14,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Functionality to remove new line escape characters.
 - Functionality to remove text inside square brackets.
 - Functionality to remove punctuation.
+- Functionality to remove white space.
