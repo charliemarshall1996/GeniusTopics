@@ -1,3 +1,5 @@
+import regex
+
 
 def remove_new_line(input_string: str):
     """
@@ -16,3 +18,21 @@ def remove_new_line(input_string: str):
     if not isinstance(input_string, str):
         return ""
     return input_string.replace("\n", "").replace("\r", "")
+
+
+def strip_text_w_sq_brackets(input_string: str):
+    """
+    Strip text within square brackets from the input string.
+
+    Args:
+    - `input_string` (`str`): The input string from which to
+    remove text within square brackets.
+
+    Returns:
+    - `str`: The input string with text within square brackets
+    removed.
+    """
+    pattern = regex.compile(r'\[([^[\]]*+(?:(?R)[^[\]]*+)*)\]')
+    if not isinstance(input_string, str):
+        return ""
+    return regex.sub(pattern, '', input_string)
