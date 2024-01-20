@@ -36,3 +36,20 @@ def strip_text_w_sq_brackets(input_string: str):
     if not isinstance(input_string, str):
         return ""
     return regex.sub(pattern, '', input_string)
+
+
+def strip_punctuation(input_string):
+    """
+    Strip punctuation from the input string and return the modified string.
+
+    Args:
+    - `input_string` (`str`): The input string from which
+    punctuation will be stripped.
+
+    Returns:
+    - `str`: The modified string with punctuation stripped.
+    """
+    pattern = regex.compile(r"[^\w\s]")
+    if not isinstance(input_string, str):
+        return ""
+    return regex.sub(pattern, '', input_string)

@@ -121,11 +121,10 @@ class TestStripTextWSqBracketsEdge(unittest.TestCase):
         txt = '[test strip square brackets [test strip square brackets] test strip square brackets test strip square brackets]'
         expected = ""
         actual = strip_text_w_sq_brackets(txt)
-        print("actual: ", actual)
         self.assertEqual(actual, expected)
 
 
-class StripTextWSqBracketsNegative(unittest.TestCase):
+class TestStripTextWSqBracketsNegative(unittest.TestCase):
 
     def test_strip_text_w_sq_brackets_none(self):
         txt = None
@@ -145,6 +144,80 @@ class StripTextWSqBracketsNegative(unittest.TestCase):
     def test_strip_text_w_sq_brackets_list(self):
         txt = ["test strip square brackets"]
         actual = strip_text_w_sq_brackets(txt)
+        self.assertEqual(actual, "")
+
+
+class TestStripPunctuation(unittest.TestCase):
+    def test_strip_punctuation_full_stop(self):
+        txt = "test strip punctuation."
+        expected = "test strip punctuation"
+        actual = strip_punctuation(txt)
+        self.assertEqual(actual, expected)
+
+    def test_strip_punctuation_apos(self):
+        txt = "test strip punctuation'"
+        expected = "test strip punctuation"
+        actual = strip_punctuation(txt)
+        self.assertEqual(actual, expected)
+
+    def test_strip_punctuation_comma(self):
+        txt = "test strip punctuation,"
+        expected = "test strip punctuation"
+        actual = strip_punctuation(txt)
+        self.assertEqual(actual, expected)
+
+    def test_strip_punctuation_excl(self):
+        txt = "test strip punctuation!"
+        expected = "test strip punctuation"
+        actual = strip_punctuation(txt)
+        self.assertEqual(actual, expected)
+
+    def test_strip_punctuation_amp(self):
+        txt = "test strip punctuation&"
+        expected = "test strip punctuation"
+        actual = strip_punctuation(txt)
+        self.assertEqual(actual, expected)
+
+
+class TestStripPunctuationEdge(unittest.TestCase):
+    def test_strip_punctuation_empty_str(self):
+        txt = ""
+        expected = ""
+        actual = strip_punctuation(txt)
+        self.assertEqual(actual, expected)
+
+    def test_strip_punctuation_all_punc(self):
+        txt = "!.&,'"
+        expected = ""
+        actual = strip_punctuation(txt)
+        self.assertEqual(actual, expected)
+
+    def test_strip_punctuation_long_text(self):
+        txt = "Hello, today I am looking to strip punctuation! After the string has been placed through the punctuation stripper function & has had the punctuation removed, there will be no more punctuation's left."
+        expected = "Hello today I am looking to strip punctuation After the string has been placed through the punctuation stripper function  has had the punctuation removed there will be no more punctuations left"
+        actual = strip_punctuation(txt)
+        self.assertEqual(actual, expected)
+
+
+class TestStripPunctuationNegative(unittest.TestCase):
+    def test_strip_punctuation_none(self):
+        txt = None
+        actual = strip_punctuation(txt)
+        self.assertEqual(actual, "")
+
+    def test_strip_punctuation_int(self):
+        txt = 1
+        actual = strip_punctuation(txt)
+        self.assertEqual(actual, "")
+
+    def test_strip_punctuation_bool(self):
+        txt = False
+        actual = strip_punctuation(txt)
+        self.assertEqual(actual, "")
+
+    def test_strip_punctuation_list(self):
+        txt = ["test strip punctuation."]
+        actual = strip_punctuation(txt)
         self.assertEqual(actual, "")
 
 
