@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.0-dev2] - 2024-01-26
+
+### Added
+
+- Descriptive text about choice of analysis.
+- Descriptive text about choice of preprocessing.
+- Descriptive text about choice of model.
+- Preprocessing steps.
+
 ## [0.0.0-dev1] - 2024-01-24
 
 ### Added
