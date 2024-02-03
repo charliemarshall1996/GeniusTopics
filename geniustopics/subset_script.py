@@ -10,8 +10,8 @@ def main(path, n_per_genre, chunk_size, batch_size):
 
 
 if __name__ == "__main__":
-    path = "full_song_lyrics.csv"
-    n_per_genre = 10000
-    chunk_size = 10000
-    batch_size = 10000
+    path = "song_lyrics_subset_10000.csv"
+    n_per_genre = 100
+    chunk_size = 100
+    batch_size = 100
     main(path, n_per_genre, chunk_size, batch_size)
