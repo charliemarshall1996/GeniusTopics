@@ -1,6 +1,10 @@
 
 import concurrent.futures
 import cudf as pd
+<<<<<<< Updated upstream
+=======
+import nvtext
+>>>>>>> Stashed changes
 import regex
 from spellchecker import SpellChecker
 from nltk.corpus import stopwords
@@ -144,7 +148,11 @@ def preprocess(df: pd.DataFrame, chunk_size=1):
         
             
 if __name__ == "__main__":
+<<<<<<< Updated upstream
     df = pd.read_csv('song_lyrics_subset_100.csv')
+=======
+    df = pd.read_csv('song_lyrics_subset_10000.csv')
+>>>>>>> Stashed changes
     preprocessed_df = preprocess(df)
     preprocessed_df.to_csv('Preprocessed_data.csv')
     

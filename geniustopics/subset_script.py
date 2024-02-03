@@ -10,7 +10,11 @@ def main(path, n_per_genre, chunk_size, batch_size):
 
 
 if __name__ == "__main__":
+<<<<<<< Updated upstream
     path = "song_lyrics_subset_10000.csv"
+=======
+    path = "song_lyrics_100.csv"
+>>>>>>> Stashed changes
     n_per_genre = 100
     chunk_size = 100
     batch_size = 100
